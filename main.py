@@ -13,7 +13,7 @@ from scraper import fetch_latest_offers
 from sender import send_offer
 
 limit = 3
-CHECK_INTERVAL = 60
+CHECK_INTERVAL = 30
 
 init_db()
 print("bot iniciado. monitorando ofertas...")
