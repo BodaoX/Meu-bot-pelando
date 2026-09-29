@@ -42,7 +42,7 @@ def fetch_latest_offers(limit=5):
     print("[scraper] buscando ofertas...")
 
     scraper = cloudscraper.create_scraper()
-r = scraper.get(f"{BASE_URL}/recentes", headers=HEADERS, timeout=15)
+    r = scraper.get(f"{BASE_URL}/recentes", headers=HEADERS, timeout=15)
     r.raise_for_status()
 
     soup = BeautifulSoup(r.text, "html.parser")
@@ -72,7 +72,7 @@ r = scraper.get(f"{BASE_URL}/recentes", headers=HEADERS, timeout=15)
 
 def fetch_offer_details(url):
     scraper = cloudscraper.create_scraper()
-r = scraper.get(url, headers=HEADERS, timeout=15)
+    r = scraper.get(url, headers=HEADERS, timeout=15)
     if r.status_code != 200:
         return None
 
