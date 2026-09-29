@@ -1,8 +1,8 @@
+import os
 import requests
 from datetime import datetime
 
-DISCORD_WEBHOOK_URL = "https://discordapp.com/api/webhooks/1554468166845857853/CXWoA6aYUOLLilxQjNASQHPJPCtAlUwDSn9zcgwdViV6M_mXreTqIcFQqC8nxA7jvQWS"
-
+DISCORD_WEBHOOK_URL = os.getenv("https://discordapp.com/api/webhooks/1554468166845857853/CXWoA6aYUOLLilxQjNASQHPJPCtAlUwDSn9zcgwdViV6M_mXreTqIcFQqC8nxA7jvQWS")
 
 def format_price_br(value: float) -> str:
     return f"{value:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
