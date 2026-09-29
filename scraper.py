@@ -1,6 +1,6 @@
 import json
 import re
-import requests
+import cloudscraper
 from bs4 import BeautifulSoup
 
 BASE_URL = "https://www.pelando.com.br"
@@ -41,7 +41,8 @@ def extract_clean_text(tag):
 def fetch_latest_offers(limit=5):
     print("[scraper] buscando ofertas...")
 
-    r = requests.get(f"{BASE_URL}/recentes", headers=HEADERS, timeout=15)
+    scraper = cloudscraper.create_scraper()
+r = scraper.get(f"{BASE_URL}/recentes", headers=HEADERS, timeout=15)
     r.raise_for_status()
 
     soup = BeautifulSoup(r.text, "html.parser")
@@ -70,7 +71,8 @@ def fetch_latest_offers(limit=5):
 
 
 def fetch_offer_details(url):
-    r = requests.get(url, headers=HEADERS, timeout=15)
+    scraper = cloudscraper.create_scraper()
+r = scraper.get(url, headers=HEADERS, timeout=15)
     if r.status_code != 200:
         return None
 
